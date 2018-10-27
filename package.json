@@ -1,12 +1,13 @@
 {
   "name": "zax-date",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
-  "main": "./lib/zax-date.js",
+  "main": "./libs/umd.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "build": "rollup --config ./build/rollup.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -21,5 +22,13 @@
   "homepage": "https://github.com/jsonchou/zax-date",
   "author": "jsonchou",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "rollup": "^0.66.6",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-uglify": "^6.0.0"
+  }
 }
