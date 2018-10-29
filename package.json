@@ -1,6 +1,6 @@
 {
   "name": "zax-date",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "main": "./libs/umd.js",
   "directories": {
@@ -29,6 +29,8 @@
     "@babel/preset-env": "^7.1.0",
     "rollup": "^0.66.6",
     "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-uglify": "^6.0.0"
   }
 }

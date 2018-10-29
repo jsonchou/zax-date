@@ -1,13 +1,13 @@
-let zaxDate = require('../lib/zax-date')
+let zaxDate = require('../libs/umd')
 
 // function name
 console.log(Object.keys(zaxDate))
 
 // compare
-console.log(zaxDate.compare('2018/9/10'))
+console.log(zaxDate.compare('2018/9/10','2018/9/5'))
 
 // offset
-console.log(zaxDate.offset('2018/9/10', 'month', 2))
+console.log(zaxDate.format(zaxDate.offset('2018/9/10', 'month', 2),'yyyy-mm-dd HH:MM'))
 
 // ago
 console.log(zaxDate.ago('2018/9/11'))
