@@ -31,11 +31,11 @@ zaxDate.compare('2018/9/10','2018/9/6')
 
 . offset
 ~~~ javascript
-zaxDate.format(zaxDate.offset('2018/9/10', 'month', 2),'yyyy-mm-dd HH:MM')
+zaxDate.format(zaxDate.offset('2018/9/10', 'month', 2),'yyyy-mm-dd HH:MM:SS')
 ~~~
 
 ~~~ javascript
-2018-11-10 00:00
+2018-11-10 00:00:00
 ~~~
 
 . ago
@@ -50,6 +50,15 @@ zaxDate.ago('2018/9/11')
 . format
 ~~~ javascript
 zaxDate.format('2018/10/25', 'yyyy-mm-dd HH:MM')
+~~~
+
+~~~ javascript
+2018-10-25 00:00
+~~~
+
+. diff
+~~~ javascript
+zaxDate.diff('2018/10/27', '2018/10/26')
 ~~~
 
 ~~~ javascript

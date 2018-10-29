@@ -7,7 +7,7 @@ console.log(Object.keys(zaxDate))
 console.log(zaxDate.compare('2018/9/10','2018/9/5'))
 
 // offset
-console.log(zaxDate.format(zaxDate.offset('2018/9/10', 'month', 2),'yyyy-mm-dd HH:MM'))
+console.log(zaxDate.format(zaxDate.offset('2018/9/10', 'month', 2),'yyyy-mm-dd HH:MM:SS'))
 
 // ago
 console.log(zaxDate.ago('2018/9/11'))
