@@ -116,5 +116,18 @@ export default {
             minutes,
             seconds,
         }
+    },
+    age(date, accurate = true) {
+        let birday = new Date(this.format(date, 'yyyy-mm-dd'));
+        let now = new Date();
+        let edge = (now.getMonth() < birday.getMonth() || (now.getMonth() === birday.getMonth() && now.getDate() < birday.getDate())) ? 1 : 0;
+        if (!accurate) {
+            edge = 0;
+        }
+        let age = now.getFullYear() - birday.getFullYear() - edge;
+        return parseInt(age);
+    },
+    isLeapYear(year) {
+        return year % 4 == 0 && year % 100 != 0
     }
 }

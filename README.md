@@ -16,11 +16,12 @@ npm run build
 
 ~~~ javascript 
 const zaxDate = require('zax-date')
+or
 import zaxDate from 'zax-date'
 ~~~
 
 
-. compare
+. **compare**
 ~~~ javascript
 zaxDate.compare('2018/9/10','2018/9/6')
 ~~~
@@ -29,7 +30,7 @@ zaxDate.compare('2018/9/10','2018/9/6')
 1
 ~~~
 
-. offset
+. **offset**
 ~~~ javascript
 zaxDate.format(zaxDate.offset('2018/9/10', 'month', 2),'yyyy-mm-dd HH:MM:SS')
 ~~~
@@ -38,7 +39,7 @@ zaxDate.format(zaxDate.offset('2018/9/10', 'month', 2),'yyyy-mm-dd HH:MM:SS')
 2018-11-10 00:00:00
 ~~~
 
-. ago
+. **ago**
 ~~~ javascript
 zaxDate.ago('2018/9/11')
 ~~~
@@ -47,7 +48,7 @@ zaxDate.ago('2018/9/11')
 2月前
 ~~~
 
-. format
+. **format**
 ~~~ javascript
 zaxDate.format('2018/10/25', 'yyyy-mm-dd HH:MM')
 ~~~
@@ -56,7 +57,7 @@ zaxDate.format('2018/10/25', 'yyyy-mm-dd HH:MM')
 2018-10-25 00:00
 ~~~
 
-. diff
+. **diff**
 ~~~ javascript
 zaxDate.diff('2018/10/27', '2018/10/26')
 ~~~
