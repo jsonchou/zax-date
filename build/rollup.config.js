@@ -13,9 +13,8 @@
  import nodeResolve from 'rollup-plugin-node-resolve';
 
  //  system, amd, cjs, es, iife, umd
- //  const tps = ['system', 'amd', 'cjs', 'es', 'iife', 'umd'];
-
- const tps = ['es'];
+ 
+const tps = ['system', 'amd', 'cjs', 'es', 'iife', 'umd'];
 
 
  let cfgs = [];
