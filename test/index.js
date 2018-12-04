@@ -17,3 +17,6 @@ console.log(zaxDate.format('2018/10/25', 'yyyy-mm-dd HH:MM'))
 
 // diff
 console.log(zaxDate.diff('2018/10/27', '2018/10/26'))
+
+// age
+console.log(zaxDate.age('2010/12/27', true))

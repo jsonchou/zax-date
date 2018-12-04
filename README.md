@@ -65,3 +65,12 @@ zaxDate.diff('2018/10/27', '2018/10/26')
 ~~~ javascript
 { days: -1, hours: -0, minutes: -0, seconds: -0 }
 ~~~
+
+. **age**
+~~~ javascript
+zaxDate.age('2018/12/31',true)
+~~~
+
+~~~ javascript
+7
+~~~
