@@ -5,6 +5,10 @@
      uglify
  } from "rollup-plugin-uglify";
 
+ import {
+     terser
+ } from 'rollup-plugin-terser'
+
  import commonjs from 'rollup-plugin-commonjs';
  import nodeResolve from 'rollup-plugin-node-resolve';
 
@@ -43,7 +47,7 @@
                  exclude: 'node_modules/**',
                  runtimeHelpers: true
              }),
-             uglify({
+             terser({
                  sourcemap: false,
                  output: {
                      comments: false,
