@@ -1,4 +1,5 @@
 # ZAX Date Util
+## the has 6 modes of amd, cjs, es, iife, system, umd. 
 
 ## install
 
@@ -6,7 +7,7 @@
 npm i zax-date -S
 ~~~
 
-## build by rollup
+## build with rollup
 
 ~~~ base
 npm run build
