@@ -134,9 +134,8 @@ export default {
     isLeapYear(year) {
         return year % 4 == 0 && year % 100 != 0
     },
-    covertDateStrStr(dt) {
-        const reg = /\d{0,4}-\d{0,2}-\d{0,2}\s\d{0,2}:\d{0,2}:\d{0,2}$/;
-        if(reg.test(dt)) {
+    covertDateStr(dt) {
+        if(typeof dt === 'string') {
             dt = dt.replace(/-/g, '/');
         }
         return dt;
