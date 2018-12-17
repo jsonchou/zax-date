@@ -23,6 +23,8 @@ export default {
         return str;
     },
     ago(dt) {
+        dt = this.covertDateStr(dt);
+
         let msPerMinute = 60 * 1000;
         let msPerHour = msPerMinute * 60;
         let msPerDay = msPerHour * 24;
@@ -46,6 +48,8 @@ export default {
         }
     },
     format(dt, mode = 'yyyy-mm-dd HH:MM:SS') {
+        dt = this.covertDateStr(dt);
+
         let date = new Date(dt);
         let pad = this._pad;
 
@@ -129,5 +133,12 @@ export default {
     },
     isLeapYear(year) {
         return year % 4 == 0 && year % 100 != 0
-    }
+    },
+    covertDateStrStr(dt) {
+        const reg = /\d{0,4}-\d{0,2}-\d{0,2}\s\d{0,2}:\d{0,2}:\d{0,2}$/;
+        if(reg.test(dt)) {
+            dt = dt.replace(/-/g, '/');
+        }
+        return dt;
+    },
 }
