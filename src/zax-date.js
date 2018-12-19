@@ -68,7 +68,7 @@ export default {
             yyyy: y,
 
             m: m + 1,
-            mm: pad(m + 1),
+            mm: pad(m + 1, 2),
 
             d: d,
             dd: pad(d, 2),
