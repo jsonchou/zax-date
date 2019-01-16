@@ -21,6 +21,7 @@ console.log(zaxDate.format('1547625501970', 'yyyy-mm-dd HH:MM:SS.SSS'))
 console.log(zaxDate.format(new Date(), 'yyyy/mm/dd HH:MM:SS.SSS'))
 console.log(zaxDate.format('2018/10/25 11:59:59', 'yyyy-mm-dd hh:MM:SS'),'-> am')//am
 console.log(zaxDate.format('2018/10/25 13:00:01', 'yyyy-mm-dd hh:MM:SS'),'-> pm')//pm
+console.log(zaxDate.format(new Date(), 'yyyy年mm月dd日HH点MM分SS秒SSS微秒'))
 
 // diff
 console.log(zaxDate.diff('2018/10/27', '2018/10/26'))

@@ -59,6 +59,7 @@ zaxDate.format('1547625501970', 'yyyy-mm-dd HH:MM:SS.SSS')
 zaxDate.format(new Date(), 'yyyy/mm/dd HH:MM:SS.SSS')
 zaxDate.format('2018/10/25 11:59:59', 'yyyy-mm-dd hh:MM:SS')//am
 zaxDate.format('2018/10/25 13:00:01', 'yyyy-mm-dd hh:MM:SS')//pm
+zaxDate.format(new Date(), 'yyyy年mm月dd日HH点MM分SS秒SSS微秒')
 ```
 
 ``` javascript
@@ -70,6 +71,7 @@ zaxDate.format('2018/10/25 13:00:01', 'yyyy-mm-dd hh:MM:SS')//pm
 2019/01/16 16:24:43.804
 2018-10-25 11:59:59 // am
 2018-10-25 01:00:01 // pm
+2019年01月16日16点44分34秒578微秒
 ```
 
 . **diff**
