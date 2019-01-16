@@ -10,7 +10,12 @@ console.log(zaxDate.compare('2018/9/10','2018/9/5'))
 console.log(zaxDate.format(zaxDate.offset('2018/9/10', 'month', 2),'yyyy-mm-dd HH:MM:SS'))
 
 // ago
-console.log(zaxDate.ago('2018/9/11'))
+console.log(zaxDate.ago('2016/9/11'))
+console.log(zaxDate.ago('2018/8/11'))
+console.log(zaxDate.ago('2019/1/14'))
+console.log(zaxDate.ago('2019/1/15 15:47:59'))
+console.log(zaxDate.ago('2019/1/16 16:47:59'))
+console.log(zaxDate.ago('2019/1/16 16:48:59'))
 
 // format
 console.log(zaxDate.format('2018/10/25', 'yyyy-mm-dd'))
