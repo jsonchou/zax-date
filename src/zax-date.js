@@ -1,4 +1,21 @@
 export default {
+    _pad(str, len = 2) {
+        str = String(str);
+        while (str.length < len) {
+            str = '0' + str;
+        }
+        return str;
+    },
+    _covertDateStr(dt) {
+        if (typeof dt === 'string') {
+            if (dt.indexOf('-') > -1) {
+                dt = dt.replace(/-/g, '/');
+                return dt
+            }
+            return Number(dt) || dt
+        }
+        return dt;
+    },
     compare(targetDate, nowDate = new Date()) {
         targetDate = new Date(targetDate);
         nowDate = new Date(nowDate)
@@ -15,15 +32,9 @@ export default {
         mode = mode.charAt(0).toUpperCase() + mode.slice(1).toLowerCase();
         return new Date(targetDate['set' + mode](targetDate['get' + mode]() + num));
     },
-    _pad(str, len = 2) {
-        str = String(str);
-        while (str.length < len) {
-            str = '0' + str;
-        }
-        return str;
-    },
+
     ago(dt) {
-        dt = this.covertDateStr(dt);
+        dt = this._covertDateStr(dt);
 
         let msPerMinute = 60 * 1000;
         let msPerHour = msPerMinute * 60;
@@ -42,15 +53,16 @@ export default {
         } else if (diff < msPerMonth) {
             return Math.round(diff / msPerDay) + '天前';
         } else if (diff < msPerYear) {
-            return Math.round(diff / msPerMonth) + '月前';
+            return Math.round(diff / msPerMonth) + '个月前';
         } else {
             return Math.round(diff / msPerYear) + '年前';
         }
     },
     format(dt, mode = 'yyyy-mm-dd HH:MM:SS') {
-        dt = this.covertDateStr(dt);
+        dt = this._covertDateStr(dt);
 
         let date = new Date(dt);
+
         let pad = this._pad;
 
         let y = date['getFullYear']();
@@ -84,12 +96,11 @@ export default {
             S: S,
             SS: pad(S, 2),
 
-            l: pad(L, 3),
-            L: pad(Math.round(L / 10)),
+            SSS: pad(L, 3),
 
         };
 
-        return mode.replace(/([a-z]+)/ig, function ($1) {
+        return mode.replace(/([a-z]+)/ig, function($1) {
             return mapping[$1] || $1;
         });
 
@@ -133,11 +144,5 @@ export default {
     },
     isLeapYear(year) {
         return year % 4 == 0 && year % 100 != 0
-    },
-    covertDateStr(dt) {
-        if(typeof dt === 'string') {
-            dt = dt.replace(/-/g, '/');
-        }
-        return dt;
     },
 }

@@ -1,77 +1,109 @@
 # ZAX Date Util
-## the has 6 modes of amd, cjs, es, iife, system, umd. 
+## there have 6 modes of amd, cjs, es, iife, system, umd. 
 
 ## install
 
-~~~ base
+``` base
 npm i zax-date -S
-~~~
+```
 
 ## build with rollup
 
-~~~ base
+``` base
 npm run build
-~~~
+```
 
 ## use
 
-~~~ javascript 
+``` javascript 
 const zaxDate = require('zax-date')
 or
 import zaxDate from 'zax-date'
-~~~
+```
 
 
 . **compare**
-~~~ javascript
+``` javascript
 zaxDate.compare('2018/9/10','2018/9/6')
-~~~
+```
 
-~~~ javascript
+``` javascript
 1
-~~~
+```
 
 . **offset**
-~~~ javascript
+``` javascript
 zaxDate.format(zaxDate.offset('2018/9/10', 'month', 2),'yyyy-mm-dd HH:MM:SS')
-~~~
+```
 
-~~~ javascript
+``` javascript
 2018-11-10 00:00:00
-~~~
+```
 
 . **ago**
-~~~ javascript
+``` javascript
 zaxDate.ago('2018/9/11')
-~~~
+```
 
-~~~ javascript
-2月前
-~~~
+``` javascript
+4个月前
+```
 
 . **format**
-~~~ javascript
-zaxDate.format('2018/10/25', 'yyyy-mm-dd HH:MM')
-~~~
+``` javascript 
+zaxDate.format('2018/10/25', 'yyyy-mm-dd')
+zaxDate.format('2018-10-25', 'yyyy/mm/dd HH:MM:SS')
+zaxDate.format('2018/10/25 11:11:11.123', 'yyyy-mm-dd HH:MM:SS.SSS')
+zaxDate.format(1547625501970, 'yyyy-mm-dd HH:MM:SS.SSS')
+zaxDate.format('1547625501970', 'yyyy-mm-dd HH:MM:SS.SSS')
+zaxDate.format(new Date(), 'yyyy/mm/dd HH:MM:SS.SSS')
+zaxDate.format('2018/10/25 11:59:59', 'yyyy-mm-dd hh:MM:SS')//am
+zaxDate.format('2018/10/25 13:00:01', 'yyyy-mm-dd hh:MM:SS')//pm
+```
 
-~~~ javascript
-2018-10-25 00:00
-~~~
+``` javascript
+2018-10-25
+2018/10/25 00:00:00
+2018-10-25 11:11:11.123
+2019-01-16 15:58:21.970
+2019-01-16 15:58:21.970
+2019/01/16 16:24:43.804
+2018-10-25 11:59:59 // am
+2018-10-25 01:00:01 // pm
+```
 
 . **diff**
-~~~ javascript
+``` javascript
 zaxDate.diff('2018/10/27', '2018/10/26')
-~~~
+```
 
-~~~ javascript
+``` javascript
 { days: -1, hours: -0, minutes: -0, seconds: -0 }
-~~~
+```
 
 . **age**
-~~~ javascript
-zaxDate.age('2018/12/31',true)
-~~~
+``` javascript
+zaxDate.age('2011/12/31',true)
+```
 
-~~~ javascript
+``` javascript
 7
-~~~
+```
+
+## Date and time patterns
+
+* yy = short year
+* yyyy = long year
+* m = month (1-12)
+* mm = month (01-12)
+* d = day (1 - 31)
+* dd = day (01 - 31)
+* h = hour in am/pm (0-12)
+* hh = hour in am/pm (00-12)
+* H = hour in day (0-23)
+* HH = hour in day (00-23)
+* M = minute in hour(0-59)
+* MM = minute in hour(01-59)
+* S = second in in minute(0-59)
+* SS = second in in minute(01-59)
+* SSS = milliseconds in in second(01-999)

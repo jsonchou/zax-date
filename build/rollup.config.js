@@ -1,5 +1,3 @@
- import os from 'os';
-
  import babel from 'rollup-plugin-babel';
  import {
      uglify

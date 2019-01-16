@@ -13,7 +13,14 @@ console.log(zaxDate.format(zaxDate.offset('2018/9/10', 'month', 2),'yyyy-mm-dd H
 console.log(zaxDate.ago('2018/9/11'))
 
 // format
-console.log(zaxDate.format('2018/10/25', 'yyyy-mm-dd HH:MM'))
+console.log(zaxDate.format('2018/10/25', 'yyyy-mm-dd'))
+console.log(zaxDate.format('2018-10-25', 'yyyy/mm/dd HH:MM:SS'))
+console.log(zaxDate.format('2018/10/25 11:11:11.123', 'yyyy-mm-dd HH:MM:SS.SSS'))
+console.log(zaxDate.format(1547625501970, 'yyyy-mm-dd HH:MM:SS.SSS'))
+console.log(zaxDate.format('1547625501970', 'yyyy-mm-dd HH:MM:SS.SSS'))
+console.log(zaxDate.format(new Date(), 'yyyy/mm/dd HH:MM:SS.SSS'))
+console.log(zaxDate.format('2018/10/25 11:59:59', 'yyyy-mm-dd hh:MM:SS'),'-> am')//am
+console.log(zaxDate.format('2018/10/25 13:00:01', 'yyyy-mm-dd hh:MM:SS'),'-> pm')//pm
 
 // diff
 console.log(zaxDate.diff('2018/10/27', '2018/10/26'))
