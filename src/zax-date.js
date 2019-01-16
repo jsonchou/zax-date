@@ -17,18 +17,19 @@ export default {
         return dt;
     },
     compare(targetDate, nowDate = new Date()) {
-        targetDate = new Date(targetDate);
-        nowDate = new Date(nowDate)
+        targetDate = new Date(this._covertDateStr(targetDate));
+        nowDate = new Date(this._covertDateStr(nowDate))
+
         if (targetDate > nowDate) {
             return 1
-        } else if (targetDate == nowDate) {
+        } else if (targetDate.getTime() == nowDate.getTime()) {
             return 0
         } else {
             return -1
         }
     },
     offset(targetDate, mode = 'Date', num) {
-        targetDate = new Date(targetDate);
+        targetDate = new Date(this._covertDateStr(targetDate));
         mode = mode.charAt(0).toUpperCase() + mode.slice(1).toLowerCase();
         return new Date(targetDate['set' + mode](targetDate['get' + mode]() + num));
     },
@@ -106,8 +107,8 @@ export default {
 
     },
     diff(dtStart = new Date(), dtEnd = new Date()) {
-        let date1 = new Date(dtStart); //起始时间
-        let date2 = new Date(dtEnd); //结束时间
+        let date1 = new Date(this._covertDateStr(dtStart)); //起始时间
+        let date2 = new Date(this._covertDateStr(dtEnd)); //结束时间
         let gap = date2.getTime() - date1.getTime(); //时间差的毫秒数      
 
         //计算出相差天数

@@ -24,11 +24,15 @@ import zaxDate from 'zax-date'
 
 . **compare**
 ``` javascript
-zaxDate.compare('2018/9/10','2018/9/6')
+zaxDate.compare('2018/9/10','2018/9/5')
+zaxDate.compare('2018/9/10','2018/9/10')
+zaxDate.compare('2018/9/10','2018/9/11')
 ```
 
 ``` javascript
 1
+0
+-1
 ```
 
 . **offset**

@@ -5,6 +5,8 @@ console.log(Object.keys(zaxDate))
 
 // compare
 console.log(zaxDate.compare('2018/9/10','2018/9/5'))
+console.log(zaxDate.compare('2018/9/10','2018/9/10'))
+console.log(zaxDate.compare('2018/9/10','2018/9/11'))
 
 // offset
 console.log(zaxDate.format(zaxDate.offset('2018/9/10', 'month', 2),'yyyy-mm-dd HH:MM:SS'))
