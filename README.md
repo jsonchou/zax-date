@@ -15,7 +15,7 @@ npm run build
 
 ## use
 
-``` javascript 
+``` javascript
 const zaxDate = require('zax-date')
 or
 import zaxDate from 'zax-date'
@@ -44,6 +44,24 @@ zaxDate.format(zaxDate.offset('2018/9/10', 'month', 2),'yyyy-mm-dd HH:MM:SS')
 2018-11-10 00:00:00
 ```
 
+. **get**
+``` javascript
+zaxDate.get('2018/9/10 15:47:59', 'fullYear')
+zaxDate.get('2018/9/10 15:47:59', 'month')
+zaxDate.get('2018/9/10 15:47:59', 'day')
+zaxDate.get('2018/9/10 15:47:59', 'hours')
+zaxDate.get('2018/9/10 15:47:59', 'minutes')
+zaxDate.get('2018/9/10 15:47:59', 'seconds')
+```
+``` javascript
+2018
+8
+1
+15
+47
+59
+```
+
 . **ago**
 ``` javascript
 zaxDate.ago('2016/9/11')
@@ -64,7 +82,7 @@ zaxDate.ago('2019/1/16 16:48:59')
 ```
 
 . **format**
-``` javascript 
+``` javascript
 zaxDate.format('2018/10/25', 'yyyy-mm-dd')
 zaxDate.format('2018-10-25', 'yyyy/mm/dd HH:MM:SS')
 zaxDate.format('2018/10/25 11:11:11.123', 'yyyy-mm-dd HH:MM:SS.SSS')
@@ -105,6 +123,19 @@ zaxDate.age('2011/12/31',true)
 ``` javascript
 7
 ```
+
+. **isLeapYear**
+``` javascript
+zaxDate.isLeapYear('2000/12/31')
+zaxDate.isLeapYear('2010/12/31')
+zaxDate.isLeapYear('2011/12/31')
+```
+
+``` javascript
+true
+```
+
+
 
 ## Date and time patterns
 
