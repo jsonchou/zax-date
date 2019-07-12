@@ -1,94 +1,93 @@
-
-import { ZaxUtil, ZaxDate, DateCompareResult } from './index.d.ts'
-
-
+import { ZaxUtil, ZaxDate } from '../types/index.d'
+import { CompareType, DateParamsType } from './enums'
 
 let zaxUtil: ZaxUtil = {
 	pad(str, len = 2) {
-		str = String(str);
+		str = String(str)
 		while (str.length < len) {
-			str = '0' + str;
+			str = '0' + str
 		}
-		return str;
+		return str
 	},
 	convertDateStr(dt) {
 		if (typeof dt === 'string') {
 			if (dt.indexOf('-') > -1) {
-				dt = dt.replace(/-/g, '/');
+				dt = dt.replace(/-/g, '/')
 				return new Date(dt)
 			}
 			return new Date(Number(dt) || dt)
 		}
-		return new Date(dt);
-	},
+		return new Date(dt)
+	}
 }
-
-
 
 let zaxDate: ZaxDate = {
 	compare(targetDate, nowDate = new Date()) {
-		targetDate = zaxUtil.convertDateStr(targetDate);
+		targetDate = zaxUtil.convertDateStr(targetDate)
 		nowDate = zaxUtil.convertDateStr(nowDate)
 
-		let result = 0;
 		if (targetDate > nowDate) {
-			result = 1
+			return CompareType.SMALLER
 		} else if (targetDate.getTime() == nowDate.getTime()) {
-			result = 0
+			return CompareType.EQUAL
 		} else {
-			result = -1
+			return CompareType.BIGGER
 		}
-		return DateCompareResult[result]
 	},
-	offset(targetDate, mode = 'Date', num) {
-		targetDate = zaxUtil.convertDateStr(targetDate);
-		mode = mode.charAt(0).toUpperCase() + mode.slice(1).toLowerCase();
-		return new Date(targetDate['set' + mode](targetDate['get' + mode]() + num));
+	offset(targetDate, mode = 'date', num) {
+		targetDate = zaxUtil.convertDateStr(targetDate)
+		mode = mode.charAt(0).toUpperCase() + mode.slice(1)
+		return new Date(targetDate['set' + mode](targetDate['get' + mode]() + num))
+	},
+	get(targetDate, mode = 'date') {
+		targetDate = zaxUtil.convertDateStr(targetDate)
+		mode = mode.charAt(0).toUpperCase() + mode.slice(1)
+		return targetDate['get' + mode]()
 	},
 	ago(dt) {
-		dt = zaxUtil.convertDateStr(dt);
+		dt = zaxUtil.convertDateStr(dt)
 
-		let msPerMinute = 60 * 1000;
-		let msPerHour = msPerMinute * 60;
-		let msPerDay = msPerHour * 24;
-		let msPerMonth = msPerDay * 30;
-		let msPerYear = msPerDay * 365;
+		let msPerMinute = 60 * 1000
+		let msPerHour = msPerMinute * 60
+		let msPerDay = msPerHour * 24
+		let msPerMonth = msPerDay * 30
+		let msPerYear = msPerDay * 365
 
-		let diff = new Date() - new Date(dt);
+		let diff = new Date() - new Date(dt)
 
 		if (diff < msPerMinute) {
-			return Math.round(diff / 1000) + '秒前';
+			return Math.round(diff / 1000) + '秒前'
 		} else if (diff < msPerHour) {
-			return Math.round(diff / msPerMinute) + '分钟前';
+			return Math.round(diff / msPerMinute) + '分钟前'
 		} else if (diff < msPerDay) {
-			return Math.round(diff / msPerHour) + '小时前';
+			return Math.round(diff / msPerHour) + '小时前'
 		} else if (diff < msPerMonth) {
-			return Math.round(diff / msPerDay) + '天前';
+			return Math.round(diff / msPerDay) + '天前'
 		} else if (diff < msPerYear) {
-			return Math.round(diff / msPerMonth) + '个月前';
+			return Math.round(diff / msPerMonth) + '个月前'
 		} else {
-			return Math.round(diff / msPerYear) + '年前';
+			return Math.round(diff / msPerYear) + '年前'
 		}
 	},
 	format(dt, mode = 'yyyy-mm-dd HH:MM:SS') {
-		dt = zaxUtil.convertDateStr(dt);
+		dt = zaxUtil.convertDateStr(dt)
 
-		let date = new Date(dt);
+		let date = new Date(dt)
 
-		let pad = this._pad;
+		let pad = zaxUtil.pad
 
-		let y = date['getFullYear']();
-		let m = date['getMonth']();
-		let d = date['getDate']();
+		let y = date['getFullYear']()
+		let m = date['getMonth']()
+		let d = date['getDate']()
 
-		let H = date['getHours']();
-		let M = date['getMinutes']();
-		let S = date['getSeconds']();
+		let H = date['getHours']()
+		let M = date['getMinutes']()
+		let S = date['getSeconds']()
 
-		let L = date['getMilliseconds']();
+		let L = date['getMilliseconds']()
 
 		const mapping = {
-			yy: String(y).slice(2),
+			// yy: String(y).slice(2),//靠近标准，主动废弃
 			yyyy: y,
 
 			m: m + 1,
@@ -108,19 +107,17 @@ let zaxDate: ZaxDate = {
 			S: S,
 			SS: pad(S, 2),
 
-			SSS: pad(L, 3),
+			SSS: pad(L, 3)
+		}
 
-		};
-
-		return mode.replace(/([a-z]+)/ig, function ($1) {
-			return mapping[$1] || $1;
-		});
-
+		return mode.replace(/([a-z]+)/gi, function ($1) {
+			return mapping[$1] || $1
+		})
 	},
 	diff(dtStart = new Date(), dtEnd = new Date()) {
-		let date1 = zaxUtil.convertDateStr(dtStart); //起始时间
-		let date2 = zaxUtil.convertDateStr(dtEnd); //结束时间
-		let gap = date2.getTime() - date1.getTime(); //时间差的毫秒数
+		let date1 = zaxUtil.convertDateStr(dtStart) //起始时间
+		let date2 = zaxUtil.convertDateStr(dtEnd) //结束时间
+		let gap = date2.getTime() - date1.getTime() //时间差的毫秒数
 
 		//计算出相差天数
 		let days = Math.floor(gap / (24 * 3600 * 1000))
@@ -141,24 +138,23 @@ let zaxDate: ZaxDate = {
 			days,
 			hours,
 			minutes,
-			seconds,
+			seconds
 		}
 	},
 	age(date, accurate = true) {
-		let birday = new Date(this.format(date, 'yyyy-mm-dd'));
-		let now = new Date();
-		let edge = (now.getMonth() < birday.getMonth() || (now.getMonth() === birday.getMonth() && now.getDate() < birday.getDate())) ? 1 : 0;
+		let birday = new Date(this.format(date, 'yyyy-mm-dd HH:MM:SS:SSS'))
+		let now = new Date()
+		let edge = now.getMonth() < birday.getMonth() || (now.getMonth() === birday.getMonth() && now.getDate() < birday.getDate()) ? 1 : 0
 		if (!accurate) {
-			edge = 0;
+			edge = 0
 		}
-		let age = now.getFullYear() - birday.getFullYear() - edge;
-		return parseInt(age);
+		let age = now.getFullYear() - birday.getFullYear() - edge
+		return parseInt(age)
 	},
-	isLeapYear(year) {
+	isLeapYear(date) {
+		let year = this.get(date, 'fullYear')
 		return year % 4 == 0 && year % 100 != 0
-	},
+	}
 }
-
-
 
 export default zaxDate

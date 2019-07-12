@@ -7,7 +7,7 @@ import typescript from 'rollup-plugin-typescript'
 //  system, amd, cjs, es, iife, umd
 
 const tps = ['system', 'amd', 'cjs', 'es', 'iife', 'umd']
-const extensions = ['.js', '.ts']
+const extensions = ['.js', '.ts', '.d.ts']
 let cfgs = []
 
 tps.map(item => {

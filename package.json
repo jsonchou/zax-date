@@ -39,7 +39,7 @@
   "author": "jsonchou",
   "license": "MIT",
   "private": false,
-  "types": "src/index.d.ts",
+  "types": "types/index.d.ts",
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/plugin-transform-runtime": "^7.1.0",
