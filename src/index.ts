@@ -1,6 +1,16 @@
 import { ZaxUtil, ZaxDate } from '../types/index.d'
 import { CompareType, OffsetType } from '../src/enums'
 
+interface DateDiffResult {
+	//days
+	days: number,
+	//hours
+	hours: number,
+	//minutes
+	minutes: number,
+	//seconds
+	seconds: number
+}
 
 let zaxUtil: ZaxUtil = {
 	pad(str, len = 2) {
@@ -135,12 +145,14 @@ let zaxDate: ZaxDate = {
 		let leave3 = leave2 % (60 * 1000) //计算分钟数后剩余的毫秒数
 		let seconds = Math.round(leave3 / 1000)
 
-		return {
+		let result: DateDiffResult = {
 			days,
 			hours,
 			minutes,
 			seconds
 		}
+
+		return result
 	},
 	age(date, accurate = true) {
 		let birday = new Date(this.format(date, 'yyyy-mm-dd HH:MM:SS:SSS'))
@@ -160,4 +172,3 @@ let zaxDate: ZaxDate = {
 
 export { CompareType, OffsetType }
 export const zaxDate
-export const zaxUtil

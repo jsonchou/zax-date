@@ -65,10 +65,9 @@ export interface ZaxDate {
 	isLeapYear(date: Date | string | number): boolean;
 }
 
-
 declare const zaxUtil: ZaxUtil
 declare const zaxDate: ZaxDate
 
-declare var CompareType: CompareType
-declare var OffsetType: OffsetType
+declare const CompareType
+declare const OffsetType
 
