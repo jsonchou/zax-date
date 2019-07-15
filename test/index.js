@@ -1,4 +1,4 @@
-let zaxDate = require('../libs/umd')
+let zaxDate, { CompareType, OffsetType } = require('../src/index')
 
 // function name
 console.log('[', Object.keys(zaxDate).join(','), ']')
@@ -10,20 +10,20 @@ console.log(zaxDate.compare('2018/9/10', '2018/9/11'))
 console.log(zaxDate.compare('2018/9/10'))
 
 // offset
-console.log(zaxDate.offset('2018/9/10 15:47:59', 'fullYear', 2))
-console.log(zaxDate.offset('2018/9/10 15:47:59', 'month', 2))
-console.log(zaxDate.offset('2018/9/10 15:47:59', 'date', 2))
-console.log(zaxDate.offset('2018/9/10 15:47:59', 'hours', 2))
-console.log(zaxDate.offset('2018/9/10 15:47:59', 'minutes', 2))
-console.log(zaxDate.offset('2018/9/10 15:47:59', 'seconds', 2))
+console.log(zaxDate.offset('2018/9/10 15:47:59', OffsetType.FULLYEAR, 2))
+console.log(zaxDate.offset('2018/9/10 15:47:59', OffsetType.MONTH, 2))
+console.log(zaxDate.offset('2018/9/10 15:47:59', OffsetType.DATE, 2))
+console.log(zaxDate.offset('2018/9/10 15:47:59', OffsetType.HOURS, 2))
+console.log(zaxDate.offset('2018/9/10 15:47:59', OffsetType.MINUTES, 2))
+console.log(zaxDate.offset('2018/9/10 15:47:59', OffsetType.SECONDS, 2))
 
 // get
-console.log(zaxDate.get('2018/9/10 15:47:59', 'fullYear'))
-console.log(zaxDate.get('2018/9/10 15:47:59', 'month'))
-console.log(zaxDate.get('2018/9/10 15:47:59', 'date'))
-console.log(zaxDate.get('2018/9/10 15:47:59', 'hours'))
-console.log(zaxDate.get('2018/9/10 15:47:59', 'minutes'))
-console.log(zaxDate.get('2018/9/10 15:47:59', 'seconds'))
+console.log(zaxDate.get('2018/9/10 15:47:59', OffsetType.FULLYEAR, 2))
+console.log(zaxDate.get('2018/9/10 15:47:59', OffsetType.MONTH, 2))
+console.log(zaxDate.get('2018/9/10 15:47:59', OffsetType.DATE, 2))
+console.log(zaxDate.get('2018/9/10 15:47:59', OffsetType.HOURS, 2))
+console.log(zaxDate.get('2018/9/10 15:47:59', OffsetType.MINUTES, 2))
+console.log(zaxDate.get('2018/9/10 15:47:59', OffsetType.SECONDS, 2))
 
 // ago
 console.log(zaxDate.ago('2016/9/11'))
@@ -49,10 +49,9 @@ console.log(zaxDate.diff('2018/10/27 15:47:59', '2018/10/26 11:37:35'))
 
 // age
 console.log(zaxDate.age('2018/10/25 11:59:59', true))
-console.log(zaxDate.age('2017/10/25 11:59:59', true))
+console.log(zaxDate.age('2017/10/25 11:59:59'))
 
 // isLeapYear
 console.log(zaxDate.isLeapYear('2000/12/20'))
 console.log(zaxDate.isLeapYear('2010/12/20'))
 console.log(zaxDate.isLeapYear('1996/12/20'))
-

@@ -11,49 +11,50 @@ const extensions = ['.js', '.ts', '.d.ts']
 let cfgs = []
 
 tps.map(item => {
-    cfgs.push({
-        input: 'src/index.ts',
-        external: ['jquery', 'moment', 'lodash'],
-        output: {
-            format: item,
-            file: `libs/${item}.js`,
-            name: 'zaxDate',
-            globals: {
-                jquery: '$',
-                lodash: '_',
-                getCurrentPages: 'getCurrentPages'
-            }
-        },
-        plugins: [
-            typescript(),
-            nodeResolve({
-                brower: true,
-                module: true,
-                jsnext: true,
-                main: true,
-                extensions,
-                customResolveOptions: {
-                    moduleDirectory: 'node_modules'
-                }
-            }),
-            commonjs({
-                extensions,
-                include: 'node_modules/**',
-                exclude: []
-            }),
-            babel({
-                exclude: 'node_modules/**',
-                runtimeHelpers: true
-            }),
-            terser({
-                sourcemap: false,
-                output: {
-                    comments: false
-                }
-                //  numWorkers: os.cpus().length - 1
-            })
-        ]
-    })
+	cfgs.push({
+		input: 'src/index.ts',
+		external: ['jquery', 'moment', 'lodash'],
+		output: {
+			exports: 'named',
+			format: item,
+			file: `libs/${item}.js`,
+			name: 'zaxDate',
+			globals: {
+				jquery: '$',
+				lodash: '_',
+				getCurrentPages: 'getCurrentPages'
+			}
+		},
+		plugins: [
+			typescript(),
+			nodeResolve({
+				brower: true,
+				module: true,
+				jsnext: true,
+				main: true,
+				extensions,
+				customResolveOptions: {
+					moduleDirectory: 'node_modules'
+				}
+			}),
+			commonjs({
+				extensions,
+				include: 'node_modules/**',
+				exclude: []
+			}),
+			babel({
+				exclude: 'node_modules/**',
+				runtimeHelpers: true
+			}),
+			terser({
+				sourcemap: false,
+				output: {
+					comments: false
+				}
+				//  numWorkers: os.cpus().length - 1
+			})
+		]
+	})
 })
 
 export default cfgs

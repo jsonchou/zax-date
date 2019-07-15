@@ -129,7 +129,8 @@ zaxDate.diff('2018/10/27 15:47:59', '2018/10/26 11:37:35')
 
 . **age**
 ``` javascript
-zaxDate.age('2018/10/25 11:59:59', true)
+console.log(zaxDate.age('2018/10/25 11:59:59', true))
+console.log(zaxDate.age('2017/10/25 11:59:59', true))
 ```
 
 ``` javascript

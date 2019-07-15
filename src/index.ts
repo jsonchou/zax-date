@@ -1,5 +1,6 @@
 import { ZaxUtil, ZaxDate } from '../types/index.d'
-import { CompareType, DateParamsType } from './enums'
+import { CompareType, OffsetType } from '../src/enums'
+
 
 let zaxUtil: ZaxUtil = {
 	pad(str, len = 2) {
@@ -34,12 +35,12 @@ let zaxDate: ZaxDate = {
 			return CompareType.BIGGER
 		}
 	},
-	offset(targetDate, mode = 'date', num) {
+	offset(targetDate, mode = OffsetType.DATE, num) {
 		targetDate = zaxUtil.convertDateStr(targetDate)
 		mode = mode.charAt(0).toUpperCase() + mode.slice(1)
 		return new Date(targetDate['set' + mode](targetDate['get' + mode]() + num))
 	},
-	get(targetDate, mode = 'date') {
+	get(targetDate, mode = OffsetType.DATE) {
 		targetDate = zaxUtil.convertDateStr(targetDate)
 		mode = mode.charAt(0).toUpperCase() + mode.slice(1)
 		return targetDate['get' + mode]()
@@ -157,4 +158,5 @@ let zaxDate: ZaxDate = {
 	}
 }
 
+export { CompareType, OffsetType }
 export default zaxDate

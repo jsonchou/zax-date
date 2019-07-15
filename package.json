@@ -55,5 +55,8 @@
     "tslib": "^1.10.0",
     "typescript": "^3.5.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "fs-extra": "^8.1.0",
+    "glob": "^7.1.4"
+  }
 }
