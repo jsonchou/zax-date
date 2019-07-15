@@ -18,7 +18,7 @@ export enum OffsetType {
 	FULLYEAR = 'fullYear',
 	MONTH = 'month',
 	HOURS = 'hours',
-	MINUTES = 'minites',
+	MINUTES = 'minutes',
 	SECONDS = 'seconds',
 	MILLISECONDS = 'milliseconds',
 	TIME = 'time',

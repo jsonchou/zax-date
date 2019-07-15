@@ -69,6 +69,6 @@ export interface ZaxDate {
 declare const zaxUtil: ZaxUtil
 declare const zaxDate: ZaxDate
 
-declare var compareType: CompareType
+declare var CompareType: CompareType
 declare var OffsetType: OffsetType
 

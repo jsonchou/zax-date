@@ -15,7 +15,7 @@ tps.map(item => {
 		input: 'src/index.ts',
 		external: ['jquery', 'moment', 'lodash'],
 		output: {
-			exports: 'named',
+			// exports: 'named',
 			format: item,
 			file: `libs/${item}.js`,
 			name: 'zaxDate',

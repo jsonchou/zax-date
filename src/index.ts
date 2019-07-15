@@ -159,4 +159,5 @@ let zaxDate: ZaxDate = {
 }
 
 export { CompareType, OffsetType }
-export default zaxDate
+export const zaxDate
+export const zaxUtil

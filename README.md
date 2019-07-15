@@ -16,9 +16,9 @@ npm run build
 ## use
 
 ``` javascript
-const zaxDate = require('zax-date')
+const { zaxDate, CompareType, OffsetType } = require('zax-date')
 or
-import zaxDate from 'zax-date'
+import { zaxDate, CompareType, OffsetType } from 'zax-date'
 ```
 
 
@@ -39,12 +39,12 @@ zaxDate.compare('2018/9/10')
 
 . **offset**
 ``` javascript
-zaxDate.offset('2018/9/10 15:47:59', 'fullYear', 2)
-zaxDate.offset('2018/9/10 15:47:59', 'month', 2)
-zaxDate.offset('2018/9/10 15:47:59', 'date', 2)
-zaxDate.offset('2018/9/10 15:47:59', 'hours', 2)
-zaxDate.offset('2018/9/10 15:47:59', 'minutes', 2)
-zaxDate.offset('2018/9/10 15:47:59', 'seconds', 2)
+zaxDate.offset('2018/9/10 15:47:59', OffsetType.FULLYEAR, 2)
+zaxDate.offset('2018/9/10 15:47:59', OffsetType.MONTH, 2)
+zaxDate.offset('2018/9/10 15:47:59', OffsetType.DATE, 2)
+zaxDate.offset('2018/9/10 15:47:59', OffsetType.HOURS, 2)
+zaxDate.offset('2018/9/10 15:47:59', OffsetType.MINUTES, 2)
+zaxDate.offset('2018/9/10 15:47:59', OffsetType.SECONDS, 2)
 ```
 
 ``` javascript
@@ -58,12 +58,12 @@ zaxDate.offset('2018/9/10 15:47:59', 'seconds', 2)
 
 . **get**
 ``` javascript
-zaxDate.get('2018/9/10 15:47:59', 'fullYear')
-zaxDate.get('2018/9/10 15:47:59', 'month')
-zaxDate.get('2018/9/10 15:47:59', 'date')
-zaxDate.get('2018/9/10 15:47:59', 'hours')
-zaxDate.get('2018/9/10 15:47:59', 'minutes')
-zaxDate.get('2018/9/10 15:47:59', 'seconds')
+zaxDate.get('2018/9/10 15:47:59', OffsetType.FULLYEAR, 2)
+zaxDate.get('2018/9/10 15:47:59', OffsetType.MONTH, 2)
+zaxDate.get('2018/9/10 15:47:59', OffsetType.DATE, 2)
+zaxDate.get('2018/9/10 15:47:59', OffsetType.HOURS, 2)
+zaxDate.get('2018/9/10 15:47:59', OffsetType.MINUTES, 2)
+zaxDate.get('2018/9/10 15:47:59', OffsetType.SECONDS, 2)
 ```
 ``` javascript
 2018
@@ -129,8 +129,8 @@ zaxDate.diff('2018/10/27 15:47:59', '2018/10/26 11:37:35')
 
 . **age**
 ``` javascript
-console.log(zaxDate.age('2018/10/25 11:59:59', true))
-console.log(zaxDate.age('2017/10/25 11:59:59', true))
+zaxDate.age('2018/10/25 11:59:59', true))
+zaxDate.age('2017/10/25 11:59:59', true))
 ```
 
 ``` javascript
