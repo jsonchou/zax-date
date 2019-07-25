@@ -23,11 +23,51 @@ export enum OffsetType {
 	MILLISECONDS = 'milliseconds',
 	TIME = 'time',
 
-	UTCDate = 'utcDate',
-	UTCFullYear = 'utcFullYear',
-	UTCHours = 'utcHours',
-	UTCMilliseconds = 'utcMilliseconds',
-	UTCMinutes = 'utcMinutes',
-	UTCMonth = 'utcMonth',
-	UTCSeconds = 'utcSeconds'
+	UTCDate = 'UTCDate',
+	UTCFullYear = 'UTCFullYear',
+	UTCHours = 'UTCHours',
+	UTCMilliseconds = 'UTCMilliseconds',
+	UTCMinutes = 'UTCMinutes',
+	UTCMonth = 'UTCMonth',
+	UTCSeconds = 'UTCSeconds'
+}
+
+export enum SetOffsetType {
+	// SETTIMEZONEOFFSET = 'setTimezoneOffset',
+	SETDATE = 'setDate',
+	SETFULLYEAR = 'setFullYear',
+	SETMONTH = 'setMonth',
+	SETHOURS = 'setHours',
+	SETMINUTES = 'setMinutes',
+	SETSECONDS = 'setSeconds',
+	SETMILLISECONDS = 'setMilliseconds',
+	SETTIME = 'setTime',
+
+	SETUTCDate = 'setUTCDate',
+	SETUTCFullYear = 'setUTCFullYear',
+	SETUTCHours = 'setUTCHours',
+	SETUTCMilliseconds = 'setUTCMilliseconds',
+	SETUTCMinutes = 'setUTCMinutes',
+	SETUTCMonth = 'setUTCMonth',
+	SETUTCSeconds = 'setUTCSeconds'
+}
+
+export enum GetOffsetType {
+	GETTIMEZONEOFFSET = 'getTimezoneOffset',
+	GETDATE = 'getDate',
+	GETFULLYEAR = 'getFullYear',
+	GETMONTH = 'getMonth',
+	GETHOURS = 'getHours',
+	GETMINUTES = 'getMinutes',
+	GETSECONDS = 'getSeconds',
+	GETMILLISECONDS = 'getMilliseconds',
+	GETTIME = 'getTime',
+
+	GETUTCDate = 'getUTCDate',
+	GETUTCFullYear = 'getUTCFullYear',
+	GETUTCHours = 'getUTCHours',
+	GETUTCMilliseconds = 'getUTCMilliseconds',
+	GETUTCMinutes = 'getUTCMinutes',
+	GETUTCMonth = 'getUTCMonth',
+	GETUTCSeconds = 'getUTCSeconds'
 }

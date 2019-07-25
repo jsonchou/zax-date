@@ -1,13 +1,13 @@
-import { ZaxUtil, ZaxDate } from '../types/index.d'
-import { CompareType, OffsetType } from '../src/enums'
+import { ZaxUtil, ZaxDate } from '../types/index'
+import { CompareType, OffsetType, SetOffsetType, GetOffsetType } from '../src/enums'
 
 interface DateDiffResult {
 	//days
-	days: number,
+	days: number
 	//hours
-	hours: number,
+	hours: number
 	//minutes
-	minutes: number,
+	minutes: number
 	//seconds
 	seconds: number
 }
@@ -32,7 +32,7 @@ let zaxUtil: ZaxUtil = {
 	}
 }
 
-let zaxDate: ZaxDate = {
+export const zaxDate: ZaxDate = {
 	compare(targetDate, nowDate = new Date()) {
 		targetDate = zaxUtil.convertDateStr(targetDate)
 		nowDate = zaxUtil.convertDateStr(nowDate)
@@ -47,13 +47,19 @@ let zaxDate: ZaxDate = {
 	},
 	offset(targetDate, mode = OffsetType.DATE, num) {
 		targetDate = zaxUtil.convertDateStr(targetDate)
-		mode = mode.charAt(0).toUpperCase() + mode.slice(1)
-		return new Date(targetDate['set' + mode](targetDate['get' + mode]() + num))
+		let tmp = mode.charAt(0).toUpperCase() + mode.slice(1)
+		type enumGetKey = keyof typeof GetOffsetType
+		type enumSetKey = keyof typeof SetOffsetType
+		let getKey: enumGetKey = ('get' + tmp).toUpperCase() as enumGetKey
+		let setKey: enumSetKey = ('set' + tmp).toUpperCase() as enumSetKey
+		let getKeyPlus: number = targetDate[GetOffsetType[getKey]]() + num
+		return new Date(targetDate[SetOffsetType[setKey]](getKeyPlus))
 	},
 	get(targetDate, mode = OffsetType.DATE) {
 		targetDate = zaxUtil.convertDateStr(targetDate)
-		mode = mode.charAt(0).toUpperCase() + mode.slice(1)
-		return targetDate['get' + mode]()
+		type enumKey = keyof typeof GetOffsetType
+		let tmp: enumKey = ('get' + mode.charAt(0).toUpperCase() + mode.slice(1)).toUpperCase() as enumKey
+		return targetDate[GetOffsetType[tmp]]()
 	},
 	ago(dt) {
 		dt = zaxUtil.convertDateStr(dt)
@@ -64,7 +70,7 @@ let zaxDate: ZaxDate = {
 		let msPerMonth = msPerDay * 30
 		let msPerYear = msPerDay * 365
 
-		let diff = new Date() - new Date(dt)
+		let diff = new Date().getTime() - new Date(dt).getTime()
 
 		if (diff < msPerMinute) {
 			return Math.round(diff / 1000) + '秒前'
@@ -97,31 +103,35 @@ let zaxDate: ZaxDate = {
 
 		let L = date['getMilliseconds']()
 
-		const mapping = {
-			// yy: String(y).slice(2),//靠近标准，主动废弃
-			yyyy: y,
-
-			m: m + 1,
-			mm: pad(m + 1, 2),
-
-			d: d,
-			dd: pad(d, 2),
-
-			h: H % 12 || 12,
-			hh: pad(H % 12 || 12),
-			H: H,
-			HH: pad(H, 2),
-
-			M: M,
-			MM: pad(M, 2),
-
-			S: S,
-			SS: pad(S, 2),
-
-			SSS: pad(L, 3)
+		interface IMapping {
+			[key: string]: string
 		}
 
-		return mode.replace(/([a-z]+)/gi, function ($1) {
+		const mapping: IMapping = {
+			// yy: String(y).slice(2),//靠近标准，主动废弃
+			yyyy: String(y),
+
+			m: String(m + 1),
+			mm: pad(m + 1, 2),
+
+			d: String(d),
+			dd: pad(d, 2),
+
+			h: String(H % 12 || 12),
+			hh: pad(H % 12 || 12),
+			H: String(H),
+			HH: pad(H, 2),
+
+			M: String(M),
+			MM: pad(M, 2),
+
+			S: String(S),
+			SS: pad(S, 2),
+
+			SSS: String(pad(L, 3))
+		}
+
+		return mode.replace(/([a-z]+)/gi, function($1) {
 			return mapping[$1] || $1
 		})
 	},
@@ -162,13 +172,12 @@ let zaxDate: ZaxDate = {
 			edge = 0
 		}
 		let age = now.getFullYear() - birday.getFullYear() - edge
-		return parseInt(age)
+		return age
 	},
 	isLeapYear(date) {
-		let year = this.get(date, 'fullYear')
+		let year = this.get(date, OffsetType.FULLYEAR)
 		return year % 4 == 0 && year % 100 != 0
 	}
 }
 
 export { CompareType, OffsetType }
-export const zaxDate
