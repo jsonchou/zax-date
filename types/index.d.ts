@@ -1,4 +1,4 @@
-import { CompareType, OffsetType } from '../src/enums'
+import { CompareType, OffsetType, GetOffsetType, SetOffsetType } from '../src/enums'
 
 export interface ZaxUtil {
 	/**
@@ -64,8 +64,11 @@ export interface ZaxDate {
 	isLeapYear(date: Date | string | number): boolean
 }
 
+
 declare const zaxUtil: ZaxUtil
 declare const zaxDate: ZaxDate
 
 declare const compareType: CompareType
 declare const offsetType: OffsetType
+declare const setOffsetType: SetOffsetType
+declare const getOffsetType: GetOffsetType

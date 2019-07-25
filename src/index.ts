@@ -1,5 +1,5 @@
 import { ZaxUtil, ZaxDate } from '../types/index'
-import { CompareType, OffsetType, SetOffsetType, GetOffsetType } from '../src/enums'
+import { CompareType, OffsetType, GetOffsetType, SetOffsetType } from '../src/enums'
 
 interface DateDiffResult {
 	//days
@@ -180,4 +180,7 @@ export const zaxDate: ZaxDate = {
 	}
 }
 
-export { CompareType, OffsetType, SetOffsetType, GetOffsetType }
+export const compareType = CompareType
+export const offsetType = OffsetType
+export const getOffsetType = GetOffsetType
+export const setOffsetType = GetOffsetType
