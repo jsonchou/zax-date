@@ -180,4 +180,4 @@ export const zaxDate: ZaxDate = {
 	}
 }
 
-export { CompareType, OffsetType }
+export { CompareType, OffsetType, SetOffsetType, GetOffsetType }
