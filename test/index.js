@@ -1,4 +1,4 @@
-let { zaxDate, compareType, offsetType, getoffsetType, setOffsetType } = require('../types/index')
+let { zaxDate, CompareType, OffsetType, GetOffsetType, SetOffsetType } = require('zax-date')
 
 // function name
 console.log('[' + Object.keys(zaxDate).join(',') + ']')
@@ -10,20 +10,20 @@ console.log(zaxDate.compare('2018/9/10', '2018/9/11'))
 console.log(zaxDate.compare('2018/9/10'))
 
 // offset
-console.log(zaxDate.offset('2018/9/10 15:47:59', offsetType.FULLYEAR, 2))
-console.log(zaxDate.offset('2018/9/10 15:47:59', offsetType.MONTH, 2))
-console.log(zaxDate.offset('2018/9/10 15:47:59', offsetType.DATE, 2))
-console.log(zaxDate.offset('2018/9/10 15:47:59', offsetType.HOURS, 2))
-console.log(zaxDate.offset('2018/9/10 15:47:59', offsetType.MINUTES, 2))
-console.log(zaxDate.offset('2018/9/10 15:47:59', offsetType.SECONDS, 2))
+console.log(zaxDate.offset('2018/9/10 15:47:59', OffsetType.FULLYEAR, 2))
+console.log(zaxDate.offset('2018/9/10 15:47:59', OffsetType.MONTH, 2))
+console.log(zaxDate.offset('2018/9/10 15:47:59', OffsetType.DATE, 2))
+console.log(zaxDate.offset('2018/9/10 15:47:59', OffsetType.HOURS, 2))
+console.log(zaxDate.offset('2018/9/10 15:47:59', OffsetType.MINUTES, 2))
+console.log(zaxDate.offset('2018/9/10 15:47:59', OffsetType.SECONDS, 2))
 
 // get
-console.log(zaxDate.get('2018/9/10 15:47:59', offsetType.FULLYEAR, 2))
-console.log(zaxDate.get('2018/9/10 15:47:59', offsetType.MONTH, 2))
-console.log(zaxDate.get('2018/9/10 15:47:59', offsetType.DATE, 2))
-console.log(zaxDate.get('2018/9/10 15:47:59', offsetType.HOURS, 2))
-console.log(zaxDate.get('2018/9/10 15:47:59', offsetType.MINUTES, 2))
-console.log(zaxDate.get('2018/9/10 15:47:59', offsetType.SECONDS, 2))
+console.log(zaxDate.get('2018/9/10 15:47:59', OffsetType.FULLYEAR, 2))
+console.log(zaxDate.get('2018/9/10 15:47:59', OffsetType.MONTH, 2))
+console.log(zaxDate.get('2018/9/10 15:47:59', OffsetType.DATE, 2))
+console.log(zaxDate.get('2018/9/10 15:47:59', OffsetType.HOURS, 2))
+console.log(zaxDate.get('2018/9/10 15:47:59', OffsetType.MINUTES, 2))
+console.log(zaxDate.get('2018/9/10 15:47:59', OffsetType.SECONDS, 2))
 
 // ago
 console.log(zaxDate.ago('2016/9/11'))

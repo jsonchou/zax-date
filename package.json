@@ -1,61 +1,62 @@
 {
-  "name": "zax-date",
-  "version": "1.1.17",
-  "description": "",
-  "main": "./libs/umd.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "build": "rollup --config ./build/rollup.config.js",
-    "test": "cd test && node index.js",
-    "server": "NODE_ENV=production  GATEWAY=outer    node ./server/index.js",
-    "clean": "node ./build/scripts/clean",
-    "release": "node ./build/scripts/release"
-  },
-  "keywords": [
-    "zax-date",
-    "dateUtils",
-    "date"
-  ],
-  "files": [
-    "libs/*",
-    "src/*",
-    "types/*"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jsonchou/zax-date.git"
-  },
-  "browserslist": [
-    "last 2 versions",
-    "Firefox ESR",
-    "> 1%",
-    "ie >= 9",
-    "iOS >= 9",
-    "Android >= 4"
-  ],
-  "homepage": "https://github.com/jsonchou/zax-date",
-  "author": "jsonchou",
-  "license": "MIT",
-  "private": false,
-  "types": "types/index.d.ts",
-  "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-transform-runtime": "^7.1.0",
-    "@babel/preset-env": "^7.1.0",
-    "done-rainbow": "^0.1.2",
-    "fs-extra": "^8.1.0",
-    "glob": "^7.1.4",
-    "rollup": "^0.66.6",
-    "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-terser": "^3.0.0",
-    "rollup-plugin-typescript": "^1.0.1",
-    "rollup-plugin-uglify": "^6.0.0",
-    "tslib": "^1.10.0",
-    "typescript": "^3.5.3"
-  },
-  "dependencies": {}
+	"name": "zax-date",
+	"version": "1.1.17",
+	"description": "",
+	"main": "./libs/umd.js",
+	"directories": {
+		"test": "test"
+	},
+	"scripts": {
+		"build": "rollup --config ./build/rollup.config.js",
+		"tsc": "tsc -w",
+		"test": "cd test && node index.js",
+		"server": "NODE_ENV=production  GATEWAY=outer    node ./server/index.js",
+		"clean": "node ./build/scripts/clean",
+		"release": "node ./build/scripts/release"
+	},
+	"keywords": [
+		"zax-date",
+		"dateUtils",
+		"date"
+	],
+	"files": [
+		"libs/*",
+		"src/*",
+		"types/*"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jsonchou/zax-date.git"
+	},
+	"browserslist": [
+		"last 2 versions",
+		"Firefox ESR",
+		"> 1%",
+		"ie >= 9",
+		"iOS >= 9",
+		"Android >= 4"
+	],
+	"homepage": "https://github.com/jsonchou/zax-date",
+	"author": "jsonchou",
+	"license": "MIT",
+	"private": false,
+	"types": "types/index.d.ts",
+	"devDependencies": {
+		"@babel/core": "^7.1.2",
+		"@babel/plugin-transform-runtime": "^7.1.0",
+		"@babel/preset-env": "^7.1.0",
+		"done-rainbow": "^0.1.2",
+		"fs-extra": "^8.1.0",
+		"glob": "^7.1.4",
+		"rollup": "^0.66.6",
+		"rollup-plugin-babel": "^4.0.3",
+		"rollup-plugin-commonjs": "^9.2.0",
+		"rollup-plugin-node-resolve": "^3.4.0",
+		"rollup-plugin-terser": "^3.0.0",
+		"rollup-plugin-typescript": "^1.0.1",
+		"rollup-plugin-uglify": "^6.0.0",
+		"tslib": "^1.10.0",
+		"typescript": "^3.5.3"
+	},
+	"dependencies": {}
 }

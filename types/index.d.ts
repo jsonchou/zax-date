@@ -1,4 +1,4 @@
-import { CompareType, OffsetType, GetOffsetType, SetOffsetType } from '../src/enums'
+import * as enums from '../src/enums'
 
 export interface ZaxUtil {
 	/**
@@ -27,13 +27,13 @@ export interface ZaxDate {
 	 * @param mode
 	 * @param num
 	 */
-	offset(date: Date | string | number, mode: OffsetType, num: number): Date
+	offset(date: Date | string | number, mode: enums.OffsetType, num: number): Date
 	/**
 	 * get partial of date by mode
 	 * @param date
 	 * @param mode
 	 */
-	get(date: Date | string | number, mode: OffsetType): number
+	get(date: Date | string | number, mode: enums.OffsetType): number
 	/**
 	 * get age of date
 	 * @param date
@@ -64,11 +64,10 @@ export interface ZaxDate {
 	isLeapYear(date: Date | string | number): boolean
 }
 
-
 declare const zaxUtil: ZaxUtil
 declare const zaxDate: ZaxDate
 
-declare const compareType: CompareType
-declare const offsetType: OffsetType
-declare const setOffsetType: SetOffsetType
-declare const getOffsetType: GetOffsetType
+declare const CompareType: enums.CompareType
+declare const OffsetType: enums.OffsetType
+declare const SetOffsetType: enums.SetOffsetType
+declare const GetOffsetType: enums.GetOffsetType

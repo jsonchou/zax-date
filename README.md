@@ -16,9 +16,9 @@ npm run build
 ## use
 
 ``` javascript
-const { zaxDate, CompareType, OffsetType } = require('zax-date')
+const { zaxDate, CompareType, OffsetType, GetOffsetType, SetOffsetType } = require('zax-date')
 or
-import { zaxDate, CompareType, OffsetType } from 'zax-date'
+import { zaxDate, CompareType, OffsetType, GetOffsetType, SetOffsetType } from 'zax-date'
 ```
 
 
