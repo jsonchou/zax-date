@@ -1,7 +1,8 @@
 const path = require('path')
 const doneRainbow = require('done-rainbow')
 const execSync = require('child_process').execSync
-const { version } = require('../../../package.json')
+const {name, version, innerModule } = require('../../../package.json')
+const checkNpm = require('./checkNpm')
 
 let increaseVersion = () => {
     let prefix = version.slice(0, version.lastIndexOf('.'))
@@ -10,6 +11,13 @@ let increaseVersion = () => {
 }
 
 let doRelease = async () => {
+
+	let skip = checkNpm(innerModule)
+
+    if (!skip) {
+        return
+	}
+
     let version = increaseVersion()
     try {
         execSync(`npm run build`, { stdio: 'inherit' })
@@ -38,7 +46,7 @@ let doRelease = async () => {
     execSync(`git status`, { stdio: 'inherit' })
     execSync(`git push`, { stdio: 'inherit' })
 
-    doneRainbow(`version ${version} published!`)
+	doneRainbow(`${name}: version ${version} published!`)
 }
 
 doRelease()

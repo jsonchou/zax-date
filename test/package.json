@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "zax-date": "^1.1.17"
+    "zax-date": "^1.1.18"
   }
 }
