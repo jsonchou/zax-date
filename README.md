@@ -1,7 +1,19 @@
-# ZAX Date Util
-## support SSR Miniprogram Browser side
+# Zax Util
 
-## install
+[![NPM version](https://img.shields.io/npm/v/zax-date.svg?style=flat)](https://www.npmjs.com/package/zax-date)
+[![Build Status](https://travis-ci.org/jsonchou/zax-date.svg?branch=master)](https://travis-ci.org/jsonchou/zax-date)
+[![codecov](https://codecov.io/gh/jsonchou/zax-date/branch/master/graph/badge.svg)](https://codecov.io/gh/jsonchou/zax-date)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+util module
+
+## Browsers support
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| IE8+ Edge+                                                                                                                                                                                                      | last 10 versions                                                                                                                                                                                                  | last 10 versions                                                                                                                                                                                              | last 2 versions                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                           |
+
+## Install
 
 ``` base
 npm i zax-date -S
@@ -58,12 +70,12 @@ zaxDate.offset('2018/9/10 15:47:59', OffsetType.SECONDS, 2)
 
 . **get**
 ``` javascript
-zaxDate.get('2018/9/10 15:47:59', OffsetType.FULLYEAR, 2)
-zaxDate.get('2018/9/10 15:47:59', OffsetType.MONTH, 2)
-zaxDate.get('2018/9/10 15:47:59', OffsetType.DATE, 2)
-zaxDate.get('2018/9/10 15:47:59', OffsetType.HOURS, 2)
-zaxDate.get('2018/9/10 15:47:59', OffsetType.MINUTES, 2)
-zaxDate.get('2018/9/10 15:47:59', OffsetType.SECONDS, 2)
+zaxDate.get('2018/9/10 15:47:59', OffsetType.FULLYEAR)
+zaxDate.get('2018/9/10 15:47:59', OffsetType.MONTH)
+zaxDate.get('2018/9/10 15:47:59', OffsetType.DATE)
+zaxDate.get('2018/9/10 15:47:59', OffsetType.HOURS)
+zaxDate.get('2018/9/10 15:47:59', OffsetType.MINUTES)
+zaxDate.get('2018/9/10 15:47:59', OffsetType.SECONDS)
 ```
 ``` javascript
 2018
@@ -129,8 +141,8 @@ zaxDate.diff('2018/10/27 15:47:59', '2018/10/26 11:37:35')
 
 . **age**
 ``` javascript
-zaxDate.age('2018/10/25 11:59:59', true))
-zaxDate.age('2017/10/25 11:59:59', true))
+zaxDate.age('2018/10/25 11:59:59', true)
+zaxDate.age('2017/10/25 11:59:59', true)
 ```
 
 ``` javascript
@@ -170,3 +182,7 @@ true
 * S = second in in minute(0-59)
 * SS = second in in minute(01-59)
 * SSS = milliseconds in in second(01-999)
+
+## More
+[Docs](https://github.com/jsonchou/zax-util/tree/master/docs)
+[Test](https://github.com/jsonchou/zax-util/blob/master/__tests__/index.spec.ts)

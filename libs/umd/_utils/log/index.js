@@ -16,9 +16,7 @@
         }
         /* istanbul ignore next */
         return function decorator(target, key, descriptor) {
-            /* istanbul ignore next */
             var original = descriptor.value;
-            /* istanbul ignore next */
             if (typeof original === 'function') {
                 descriptor.value = function () {
                     var args = [];
@@ -26,7 +24,6 @@
                         args[_i] = arguments[_i];
                     }
                     var me = this;
-                    /* istanbul ignore next */
                     if (me.debug) {
                         console.log(info[0] + '='.repeat(50), "" + args);
                         console.info(me.eventSource);
@@ -35,7 +32,6 @@
                     return original.apply(this, args);
                 };
             }
-            /* istanbul ignore next */
             return descriptor;
         };
     });

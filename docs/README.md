@@ -1,151 +1,170 @@
-<a name="module_zaxUrl"></a>
+<a name="module_zaxString"></a>
 
-## zaxUrl
-<p>support server &amp; client &amp; miniprogram side</p>
+## zaxString
+<p>String module.</p>
 
-**See**: https://github.com/jsonchou/zax-url
-**Author**: jsonchou
+**See**
 
-* [zaxUrl](#module_zaxUrl)
-    * [~get(url, key)](#module_zaxUrl..get) ⇒ <code>String</code>
-    * [~set(url, key, value)](#module_zaxUrl..set) ⇒ <code>String</code>
-    * [~del(url, key)](#module_zaxUrl..del) ⇒ <code>String</code>
-    * [~parse(url)](#module_zaxUrl..parse) ⇒ <code>UrlObject</code>
-    * [~search(url)](#module_zaxUrl..search) ⇒ <code>IKV</code>
-    * [~hash(url)](#module_zaxUrl..hash) ⇒ <code>String</code>
-    * [~pathKey(url, pos)](#module_zaxUrl..pathKey) ⇒ <code>String</code>
+- doc https://github.com/jsonchou/zax-util/tree/master/docs/string
+- striptags https://github.com/ericnorris/striptags
+- Locale-codes https://www.science.co.il/language/Locale-codes.php
 
-<a name="module_zaxUrl..get"></a>
 
-### zaxUrl~get(url, key) ⇒ <code>String</code>
-<p>get value from url search part</p>
+* [zaxString](#module_zaxString)
+    * _static_
+        * [.compare](#module_zaxString.compare) ⇒ <code>Date</code>
+        * [.offset](#module_zaxString.offset) ⇒ <code>Number</code>
+        * [.get](#module_zaxString.get) ⇒ <code>String</code>
+        * [.ago](#module_zaxString.ago) ⇒ <code>String</code>
+        * [.format](#module_zaxString.format) ⇒ <code>DateDiffResult</code>
+        * [.diff](#module_zaxString.diff) ⇒ <code>Number</code>
+        * [.age](#module_zaxString.age) ⇒ <code>Boolean</code>
+    * _inner_
+        * [~compare(targetDate, nowDate)](#module_zaxString..compare) ⇒ <code>Number</code>
 
-**Kind**: inner method of [<code>zaxUrl</code>](#module_zaxUrl)
-**Returns**: <code>String</code> - <p>string of result</p>
+<a name="module_zaxString.compare"></a>
 
-| Param | Type | Description |
-| --- | --- | --- |
-| url | <code>String</code> | <p>url</p> |
-| key | <code>String</code> | <p>key</p> |
+### zaxString.compare ⇒ <code>Date</code>
+<p>set date offset.</p>
 
-**Example**
-```js
-get("pages/index?id=2", 'id')
-=> 2
-```
-<a name="module_zaxUrl..set"></a>
-
-### zaxUrl~set(url, key, value) ⇒ <code>String</code>
-<p>set &amp; get new url</p>
-
-**Kind**: inner method of [<code>zaxUrl</code>](#module_zaxUrl)
-**Returns**: <code>String</code> - <p>new url</p>
+**Kind**: static property of [<code>zaxString</code>](#module_zaxString)  
+**Returns**: <code>Date</code> - <p>standard date</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| url | <code>String</code> | <p>url</p> |
-| key | <code>String</code> | <p>key</p> |
-| value | <code>String</code> | <p>value</p> |
+| targetDate | <code>NoneStdDateType</code> | <p>target date</p> |
+| mode | <code>OffsetType</code> | <p>mode</p> |
 
-**Example**
+**Example**  
 ```js
-set("pages/index?id=2", 'foo','bar')
-=> pages/index?id=2&foo=bar
+offset('2019-09-20','date',-1)
+//=> Date('2019-09-19')
 ```
-<a name="module_zaxUrl..del"></a>
+<a name="module_zaxString.offset"></a>
 
-### zaxUrl~del(url, key) ⇒ <code>String</code>
-<p>delete key &amp; get new url</p>
+### zaxString.offset ⇒ <code>Number</code>
+<p>get mode from date.</p>
 
-**Kind**: inner method of [<code>zaxUrl</code>](#module_zaxUrl)
-**Returns**: <code>String</code> - <p>new url</p>
+**Kind**: static property of [<code>zaxString</code>](#module_zaxString)  
+**Returns**: <code>Number</code> - <p>mode value</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| url | <code>String</code> | <p>url</p> |
-| key | <code>String</code> | <p>key</p> |
+| targetDate | <code>NoneStdDateType</code> | <p>target time</p> |
+| mode | <code>OffsetType</code> | <p>mode</p> |
 
-**Example**
+**Example**  
 ```js
-del("pages/index?id=2", 'id')
-=> pages/index
+get('2019-09-20','year')
+//=> 2019
 ```
-<a name="module_zaxUrl..parse"></a>
+<a name="module_zaxString.get"></a>
 
-### zaxUrl~parse(url) ⇒ <code>UrlObject</code>
-<p>get key of value of url</p>
+### zaxString.get ⇒ <code>String</code>
+<p>date ago.</p>
 
-**Kind**: inner method of [<code>zaxUrl</code>](#module_zaxUrl)
-**Returns**: <code>UrlObject</code> - <p>parse object</p>
+**Kind**: static property of [<code>zaxString</code>](#module_zaxString)  
+**Returns**: <code>String</code> - <p>date ago</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| url | <code>String</code> | <p>url</p> |
+| targetDate | <code>NoneStdDateType</code> | <p>target time</p> |
 
-**Example**
+**Example**  
 ```js
-parse("https://demo.com/index?bizOrigin=foo&other=quz#/path/id=3?bizOrigin=bar")
-=> {
-	host: 'demo.com',
-	hostname: 'demo.com',
-	href: mixUrl,
-	origin: 'https://demo.com',
-	pathname: '/index',
-	port: '443',
-	protocol: 'https:',
-	hash: '#/path/id=3?bizOrigin=bar',
-	search: '?bizOrigin=foo&other=quz'
-}
+ago('2019-09-08')
+//=> 2月前
 ```
-<a name="module_zaxUrl..search"></a>
+<a name="module_zaxString.ago"></a>
 
-### zaxUrl~search(url) ⇒ <code>IKV</code>
-<p>get url search part</p>
+### zaxString.ago ⇒ <code>String</code>
+<p>format date.
+0 - 10</p>
 
-**Kind**: inner method of [<code>zaxUrl</code>](#module_zaxUrl)
-**Returns**: <code>IKV</code> - <p>url search part</p>
+**Kind**: static property of [<code>zaxString</code>](#module_zaxString)  
+**Returns**: <code>String</code> - <p>date</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| url | <code>String</code> | <p>url</p> |
+| targetDate | <code>NoneStdDateType</code> | <p>target date</p> |
+| mode | <code>String</code> | <p>mode</p> |
 
-**Example**
+**Example**  
 ```js
-search("https://demo.com/index?bizOrigin=foo&other=quz#/path/id=3?bizOrigin=bar")
-=> { bizOrigin: 'foo', other: 'quz' }
+format(new Date(),yyyy-mm-dd HH:MM:SS)
+//=> one
 ```
-<a name="module_zaxUrl..hash"></a>
+<a name="module_zaxString.format"></a>
 
-### zaxUrl~hash(url) ⇒ <code>String</code>
-<p>get url hash part without # prefix</p>
+### zaxString.format ⇒ <code>DateDiffResult</code>
+<p>number to english word.
+0 - 10</p>
 
-**Kind**: inner method of [<code>zaxUrl</code>](#module_zaxUrl)
-**Returns**: <code>String</code> - <p>url hash part</p>
+**Kind**: static property of [<code>zaxString</code>](#module_zaxString)  
+**Returns**: <code>DateDiffResult</code> - <p>diff date</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| url | <code>String</code> | <p>url</p> |
+| dtStart | <code>NoneStdDateType</code> | <p>number</p> |
+| endDate | <code>NoneStdDateType</code> | <p>number</p> |
 
-**Example**
+**Example**  
 ```js
-hash("https://demo.com/index?bizOrigin=foo&other=quz#/path/id=3?bizOrigin=bar")
-=> /path/id=3?bizOrigin=bar
+diff('2019-09-20','2019-09-18')
+//=> one
 ```
-<a name="module_zaxUrl..pathKey"></a>
+<a name="module_zaxString.diff"></a>
 
-### zaxUrl~pathKey(url, pos) ⇒ <code>String</code>
-<p>get last url part of key</p>
+### zaxString.diff ⇒ <code>Number</code>
+<p>get age from date.
+0 - 10</p>
 
-**Kind**: inner method of [<code>zaxUrl</code>](#module_zaxUrl)
-**Returns**: <code>String</code> - <p>key path</p>
+**Kind**: static property of [<code>zaxString</code>](#module_zaxString)  
+**Returns**: <code>Number</code> - <p>age</p>  
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| url | <code>String</code> |  | <p>url</p> |
-| pos | <code>Number</code> | <code>0</code> | <p>pos</p> |
+| Param | Type | Description |
+| --- | --- | --- |
+| targetDate | <code>NoneStdDateType</code> | <p>target date</p> |
+| accurate | <code>Boolean</code> | <p>locale</p> |
 
-**Example**
+**Example**  
 ```js
-path("https://demo.com/index?bizOrigin=foo&other=quz#/path/id=3?bizOrigin=bar")
-=> index
+age(2011-09-20)
+//=> 8
+```
+<a name="module_zaxString.age"></a>
+
+### zaxString.age ⇒ <code>Boolean</code>
+<p>is leap year.</p>
+
+**Kind**: static property of [<code>zaxString</code>](#module_zaxString)  
+**Returns**: <code>Boolean</code> - <p>is leap year</p>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| targetDate | <code>NoneStdDateType</code> | <p>target date</p> |
+
+**Example**  
+```js
+isLeapYear(1)
+//=> one
+```
+<a name="module_zaxString..compare"></a>
+
+### zaxString~compare(targetDate, nowDate) ⇒ <code>Number</code>
+<p>compare date.
+1、0、-1</p>
+
+**Kind**: inner method of [<code>zaxString</code>](#module_zaxString)  
+**Returns**: <code>Number</code> - <p>result</p>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| targetDate | <code>NoneStdDateType</code> | <p>target date</p> |
+| nowDate | <code>NoneStdDateType</code> | <p>now date</p> |
+
+**Example**  
+```js
+compare('2019-09-20','2019-09-21')
+//=> -1
 ```
