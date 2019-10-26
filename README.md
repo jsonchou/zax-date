@@ -183,5 +183,5 @@ true
 * SSS = milliseconds in in second(01-999)
 
 ## More
-- [Docs](https://github.com/jsonchou/zax-util/tree/master/docs)
-- [Test](https://github.com/jsonchou/zax-util/blob/master/__tests__/index.spec.ts)
+- [Docs](https://github.com/jsonchou/zax-date/tree/master/docs)
+- [Test](https://github.com/jsonchou/zax-date/blob/master/__tests__/index.spec.ts)
