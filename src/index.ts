@@ -1,9 +1,7 @@
 /**
- * String module.
- * @module zaxString
- * @see doc https://github.com/jsonchou/zax-util/tree/master/docs/string
- * @see striptags https://github.com/ericnorris/striptags
- * @see Locale-codes https://www.science.co.il/language/Locale-codes.php
+ * Date module.
+ * @module zaxDate
+ * @see doc https://github.com/jsonchou/zax-date/tree/master/docs/string
  */
 
 // type Nothing = {} // jsdoc2md bugs, do not remove this line
