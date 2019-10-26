@@ -1,11 +1,11 @@
-# Zax Util
+# Zax Date
 
 [![NPM version](https://img.shields.io/npm/v/zax-date.svg?style=flat)](https://www.npmjs.com/package/zax-date)
 [![Build Status](https://travis-ci.org/jsonchou/zax-date.svg?branch=master)](https://travis-ci.org/jsonchou/zax-date)
 [![codecov](https://codecov.io/gh/jsonchou/zax-date/branch/master/graph/badge.svg)](https://codecov.io/gh/jsonchou/zax-date)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-util module
+Date module
 
 ## Browsers support
 
@@ -28,9 +28,8 @@ npm run build
 ## use
 
 ``` javascript
-const { zaxDate, CompareType, OffsetType, GetOffsetType, SetOffsetType } = require('zax-date')
-or
-import { zaxDate, CompareType, OffsetType, GetOffsetType, SetOffsetType } from 'zax-date'
+import { compare, offset, get, ago, format, diff, age, isLeapYear, CompareType, OffsetType, GetOffsetType, SetOffsetType } from 'zax-date'
+import zaxDate from 'zax-date'
 ```
 
 
@@ -184,5 +183,5 @@ true
 * SSS = milliseconds in in second(01-999)
 
 ## More
-[Docs](https://github.com/jsonchou/zax-util/tree/master/docs)
-[Test](https://github.com/jsonchou/zax-util/blob/master/__tests__/index.spec.ts)
+- [Docs](https://github.com/jsonchou/zax-util/tree/master/docs)
+- [Test](https://github.com/jsonchou/zax-util/blob/master/__tests__/index.spec.ts)
