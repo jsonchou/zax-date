@@ -80,6 +80,17 @@ const dateSections = {
 	'en-us': { gap: ' ', suffix: 'ago', kv: { second: 'second', minute: 'minute', hour: 'hour', day: 'day', week: 'week', month: 'month', year: 'year' } }
 }
 
+// [
+// 	['刚刚', '片刻后'],
+// 	['%s 秒前', '%s 秒后'],
+// 	['%s 分钟前', '%s 分钟后'],
+// 	['%s 小时前', '%s 小时后'],
+// 	['%s 天前', '%s 天后'],
+// 	['%s 周前', '%s 周后'],
+// 	['%s 月前', '%s 月后'],
+// 	['%s 年前', '%s 年后']
+// ]
+
 type DateSectionKeys = keyof typeof dateSections
 
 type NoneStdDateType = Date | number | string

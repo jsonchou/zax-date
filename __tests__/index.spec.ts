@@ -96,17 +96,18 @@ describe('zaxDate', () => {
 	})
 
 	it(`age`, () => {
-		expect(age('2019/10/26 19:25:59', true)).toEqual(0)
-		expect(age('2019/10/26 19:25:59', false)).toEqual(0)
+		let thisYear = 2020
+		expect(age(`${thisYear}/2/12 19:25:59`, true)).toEqual(0)
+		expect(age(`${thisYear}/2/12 19:25:59`, false)).toEqual(0)
 
-		expect(age('2019/10/25 11:59:59', true)).toEqual(0)
-		expect(age('2019/10/25 11:59:59', false)).toEqual(0)
+		expect(age(`${thisYear}/2/11 11:59:59`, true)).toEqual(0)
+		expect(age(`${thisYear}/2/11 11:59:59`, false)).toEqual(0)
 
-		expect(age('2018/11/25 11:59:59', true)).toEqual(0)
-		expect(age('2018/11/25 11:59:59', false)).toEqual(1)
+		expect(age(`${thisYear - 1}/2/11 11:59:59`, true)).toEqual(1)
+		expect(age(`${thisYear - 1}/2/11 11:59:59`, false)).toEqual(1)
 
-		expect(age('2018/09/25 11:59:59', true)).toEqual(1)
-		expect(age('2018/09/25 11:59:59', false)).toEqual(1)
+		expect(age(`${thisYear - 1}/09/25 11:59:59`, true)).toEqual(0)
+		expect(age(`${thisYear - 1}/09/25 11:59:59`, false)).toEqual(1)
 
 
 	})
@@ -116,7 +117,7 @@ describe('zaxDate', () => {
 		expect(isLeapYear('2000/12/20')).toEqual(false)
 		expect(isLeapYear('2010/12/20')).toEqual(false)
 		expect(isLeapYear('1996/12/20')).toEqual(true)
-		expect(isLeapYear()).toEqual(false)
+		expect(isLeapYear()).toEqual(true)
 	})
 })
 

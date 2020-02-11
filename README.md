@@ -87,12 +87,12 @@ zaxDate.get('2018/9/10 15:47:59', OffsetType.SECONDS)
 
 . **ago**
 ``` javascript
-zaxDate.ago('2016/9/11')
-zaxDate.ago('2018/8/11')
-zaxDate.ago('2019/1/14')
-zaxDate.ago('2019/1/15 15:47:59')
-zaxDate.ago('2019/1/16 16:47:59')
-zaxDate.ago('2019/06/16 16:48:59')
+zaxDate.ago('2016/9/11','zh-cn')
+zaxDate.ago('2018/8/11','zh-cn')
+zaxDate.ago('2019/1/14','zh-cn')
+zaxDate.ago('2019/1/15 15:47:59','zh-cn')
+zaxDate.ago('2019/1/16 16:47:59','zh-cn')
+zaxDate.ago('2019/06/16 16:48:59','zh-cn')
 ```
 
 ``` javascript
