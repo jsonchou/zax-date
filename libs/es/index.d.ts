@@ -61,6 +61,36 @@ export declare enum GetOffsetType {
     GETUTCMonth = "getUTCMonth",
     GETUTCSeconds = "getUTCSeconds"
 }
+declare const dateSections: {
+    'zh-cn': {
+        gap: string;
+        suffix: string;
+        kv: {
+            second: string;
+            minute: string;
+            hour: string;
+            day: string;
+            week: string;
+            month: string;
+            year: string;
+        };
+    };
+    'en-us': {
+        gap: string;
+        suffix: string;
+        kv: {
+            second: string;
+            minute: string;
+            hour: string;
+            day: string;
+            week: string;
+            month: string;
+            year: string;
+        };
+    };
+};
+declare type DateSectionKeys = keyof typeof dateSections;
+declare type NoneStdDateType = Date | number | string;
 interface DateDiffResult {
     days: number;
     hours: number;
@@ -82,7 +112,7 @@ interface DateDiffResult {
  * @param nowDate {NoneStdDateType} now date
  * @returns {Number} result
  */
-declare const compare: (targetDate: string | number | Date, nowDate?: string | number | Date) => CompareType;
+declare const compare: (targetDate: NoneStdDateType, nowDate?: NoneStdDateType) => CompareType;
 /**
  * set date offset.
  *
@@ -96,7 +126,7 @@ declare const compare: (targetDate: string | number | Date, nowDate?: string | n
  * @param mode {OffsetType} mode
  * @returns {Date} standard date
  */
-declare const offset: (targetDate: string | number | Date, mode?: OffsetType, num?: number) => Date;
+declare const offset: (targetDate: NoneStdDateType, mode?: OffsetType, num?: number) => Date;
 /**
  * get mode from date.
  *
@@ -110,7 +140,7 @@ declare const offset: (targetDate: string | number | Date, mode?: OffsetType, nu
  * @param mode {OffsetType} mode
  * @returns {Number} mode value
  */
-declare const get: (targetDate: string | number | Date, mode: OffsetType) => number;
+declare const get: (targetDate: NoneStdDateType, mode: OffsetType) => number;
 /**
  * date ago.
  *
@@ -123,7 +153,7 @@ declare const get: (targetDate: string | number | Date, mode: OffsetType) => num
  * @param targetDate {NoneStdDateType} target time
  * @returns {String} date ago
  */
-declare const ago: (targetDate: string | number | Date, locale?: "zh-cn" | "en-us", nowDate?: string | number | Date) => string;
+declare const ago: (targetDate: NoneStdDateType, locale?: DateSectionKeys, nowDate?: NoneStdDateType) => string;
 /**
  * format date.
  * 0 - 10
@@ -138,7 +168,7 @@ declare const ago: (targetDate: string | number | Date, locale?: "zh-cn" | "en-u
  * @param mode {String} mode
  * @returns {String} date
  */
-declare const format: (targetDate: string | number | Date, mode?: string) => string;
+declare const format: (targetDate: NoneStdDateType, mode?: string) => string;
 /**
  * number to english word.
  * 0 - 10
@@ -153,7 +183,7 @@ declare const format: (targetDate: string | number | Date, mode?: string) => str
  * @param endDate {NoneStdDateType} number
  * @returns {DateDiffResult} diff date
  */
-declare const diff: (dtStart: string | number | Date, dtEnd?: string | number | Date) => DateDiffResult;
+declare const diff: (dtStart: NoneStdDateType, dtEnd?: NoneStdDateType) => DateDiffResult;
 /**
  * get age from date.
  * 0 - 10
@@ -168,7 +198,7 @@ declare const diff: (dtStart: string | number | Date, dtEnd?: string | number | 
  * @param accurate {Boolean} locale
  * @returns {Number} age
  */
-declare const age: (targetDate: string | number | Date, accurate: boolean) => number;
+declare const age: (targetDate: NoneStdDateType, accurate: boolean) => number;
 /**
  * is leap year.
  *
@@ -181,16 +211,16 @@ declare const age: (targetDate: string | number | Date, accurate: boolean) => nu
  * @param targetDate {NoneStdDateType} target date
  * @returns {Boolean} is leap year
  */
-declare const isLeapYear: (targetDate?: string | number | Date) => boolean;
+declare const isLeapYear: (targetDate?: NoneStdDateType) => boolean;
 declare const expData: {
-    compare: (targetDate: string | number | Date, nowDate?: string | number | Date) => CompareType;
-    offset: (targetDate: string | number | Date, mode?: OffsetType, num?: number) => Date;
-    get: (targetDate: string | number | Date, mode: OffsetType) => number;
-    ago: (targetDate: string | number | Date, locale?: "zh-cn" | "en-us", nowDate?: string | number | Date) => string;
-    format: (targetDate: string | number | Date, mode?: string) => string;
-    diff: (dtStart: string | number | Date, dtEnd?: string | number | Date) => DateDiffResult;
-    age: (targetDate: string | number | Date, accurate: boolean) => number;
-    isLeapYear: (targetDate?: string | number | Date) => boolean;
+    compare: (targetDate: NoneStdDateType, nowDate?: NoneStdDateType) => CompareType;
+    offset: (targetDate: NoneStdDateType, mode?: OffsetType, num?: number) => Date;
+    get: (targetDate: NoneStdDateType, mode: OffsetType) => number;
+    ago: (targetDate: NoneStdDateType, locale?: DateSectionKeys, nowDate?: NoneStdDateType) => string;
+    format: (targetDate: NoneStdDateType, mode?: string) => string;
+    diff: (dtStart: NoneStdDateType, dtEnd?: NoneStdDateType) => DateDiffResult;
+    age: (targetDate: NoneStdDateType, accurate: boolean) => number;
+    isLeapYear: (targetDate?: NoneStdDateType) => boolean;
     CompareType: typeof CompareType;
     OffsetType: typeof OffsetType;
     GetOffsetType: typeof GetOffsetType;

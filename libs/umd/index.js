@@ -14,6 +14,7 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.isLeapYear = exports.age = exports.diff = exports.format = exports.ago = exports.get = exports.offset = exports.compare = exports.GetOffsetType = exports.SetOffsetType = exports.OffsetType = exports.CompareType = void 0;
     // type Nothing = {} // jsdoc2md bugs, do not remove this line
     var CompareType;
     (function (CompareType) {
