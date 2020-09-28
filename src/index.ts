@@ -97,15 +97,15 @@ type NoneStdDateType = Date | number | string
 
 interface DateDiffResult {
 	//days
-	days: number
+	days: number | string
 	//hours
-	hours: number
+	hours: number | string
 	//minutes
-	minutes: number
+	minutes: number | string
 	//seconds
-	seconds: number
+	seconds: number | string
 	//milliseconds
-	milliseconds: number
+	milliseconds: number | string
 }
 
 const pad = (str: string | number, len: number = 2): string => {
@@ -334,7 +334,7 @@ const format = (targetDate: NoneStdDateType, mode: string = 'yyyy-mm-dd HH:MM:SS
  * @param endDate {NoneStdDateType} number
  * @returns {DateDiffResult} diff date
  */
-const diff = (dtStart: NoneStdDateType, dtEnd: NoneStdDateType = new Date()): DateDiffResult => {
+const diff = (dtStart: NoneStdDateType, dtEnd: NoneStdDateType = new Date(), padZero = false): DateDiffResult => {
 	dtStart = convertDateStr(dtStart) //起始时间
 	dtEnd = convertDateStr(dtEnd) //结束时间
 	let gap = dtEnd.getTime() - dtStart.getTime() //时间差的毫秒数
@@ -364,12 +364,16 @@ const diff = (dtStart: NoneStdDateType, dtEnd: NoneStdDateType = new Date()): Da
 	let leave3 = leave2 % (section.minute)
 	let seconds = Math.round(leave3 / section.second)
 
+	//计算相差毫秒数
+	let leave4 = leave3 % (section.minute)
+	let milliseconds = Math.round(leave4 / 1000)
+
 	return {
-		days,
-		hours,
-		minutes,
-		seconds,
-		milliseconds: gap
+		days: padZero ? pad(days) : days,
+		hours: padZero ? pad(hours) : hours,
+		minutes: padZero ? pad(minutes) : minutes,
+		seconds: padZero ? pad(seconds) : seconds,
+		milliseconds: padZero ? pad(milliseconds, 3) : milliseconds
 	}
 
 }
@@ -391,6 +395,7 @@ const diff = (dtStart: NoneStdDateType, dtEnd: NoneStdDateType = new Date()): Da
 const age = (targetDate: NoneStdDateType, accurate: boolean): number => {
 	let birday = new Date(format(targetDate, 'yyyy-mm-dd HH:MM:SS:SSS'))
 	let now = new Date()
+	/* istanbul ignore next */
 	let edge = (now.getMonth() < birday.getMonth() || (now.getMonth() === birday.getMonth() && now.getDate() < birday.getDate())) ? 1 : 0
 	if (!accurate) {
 		edge = 0

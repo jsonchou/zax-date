@@ -299,8 +299,9 @@
      * @param endDate {NoneStdDateType} number
      * @returns {DateDiffResult} diff date
      */
-    var diff = function (dtStart, dtEnd) {
+    var diff = function (dtStart, dtEnd, padZero) {
         if (dtEnd === void 0) { dtEnd = new Date(); }
+        if (padZero === void 0) { padZero = false; }
         dtStart = convertDateStr(dtStart); //起始时间
         dtEnd = convertDateStr(dtEnd); //结束时间
         var gap = dtEnd.getTime() - dtStart.getTime(); //时间差的毫秒数
@@ -324,12 +325,15 @@
         //计算相差秒数
         var leave3 = leave2 % (section.minute);
         var seconds = Math.round(leave3 / section.second);
+        //计算相差毫秒数
+        var leave4 = leave3 % (section.minute);
+        var milliseconds = Math.round(leave4 / 1000);
         return {
-            days: days,
-            hours: hours,
-            minutes: minutes,
-            seconds: seconds,
-            milliseconds: gap
+            days: padZero ? pad(days) : days,
+            hours: padZero ? pad(hours) : hours,
+            minutes: padZero ? pad(minutes) : minutes,
+            seconds: padZero ? pad(seconds) : seconds,
+            milliseconds: padZero ? pad(milliseconds, 3) : milliseconds
         };
     };
     exports.diff = diff;
@@ -350,6 +354,7 @@
     var age = function (targetDate, accurate) {
         var birday = new Date(format(targetDate, 'yyyy-mm-dd HH:MM:SS:SSS'));
         var now = new Date();
+        /* istanbul ignore next */
         var edge = (now.getMonth() < birday.getMonth() || (now.getMonth() === birday.getMonth() && now.getDate() < birday.getDate())) ? 1 : 0;
         if (!accurate) {
             edge = 0;

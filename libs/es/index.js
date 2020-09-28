@@ -275,7 +275,7 @@ const format = (targetDate, mode = 'yyyy-mm-dd HH:MM:SS') => {
  * @param endDate {NoneStdDateType} number
  * @returns {DateDiffResult} diff date
  */
-const diff = (dtStart, dtEnd = new Date()) => {
+const diff = (dtStart, dtEnd = new Date(), padZero = false) => {
     dtStart = convertDateStr(dtStart); //起始时间
     dtEnd = convertDateStr(dtEnd); //结束时间
     let gap = dtEnd.getTime() - dtStart.getTime(); //时间差的毫秒数
@@ -299,12 +299,15 @@ const diff = (dtStart, dtEnd = new Date()) => {
     //计算相差秒数
     let leave3 = leave2 % (section.minute);
     let seconds = Math.round(leave3 / section.second);
+    //计算相差毫秒数
+    let leave4 = leave3 % (section.minute);
+    let milliseconds = Math.round(leave4 / 1000);
     return {
-        days,
-        hours,
-        minutes,
-        seconds,
-        milliseconds: gap
+        days: padZero ? pad(days) : days,
+        hours: padZero ? pad(hours) : hours,
+        minutes: padZero ? pad(minutes) : minutes,
+        seconds: padZero ? pad(seconds) : seconds,
+        milliseconds: padZero ? pad(milliseconds, 3) : milliseconds
     };
 };
 /**
@@ -324,6 +327,7 @@ const diff = (dtStart, dtEnd = new Date()) => {
 const age = (targetDate, accurate) => {
     let birday = new Date(format(targetDate, 'yyyy-mm-dd HH:MM:SS:SSS'));
     let now = new Date();
+    /* istanbul ignore next */
     let edge = (now.getMonth() < birday.getMonth() || (now.getMonth() === birday.getMonth() && now.getDate() < birday.getDate())) ? 1 : 0;
     if (!accurate) {
         edge = 0;

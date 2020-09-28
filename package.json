@@ -40,7 +40,8 @@
     ],
     "files": [
         "libs/*",
-        "types/*"
+        "types/*",
+        "src/*"
     ],
     "repository": {
         "type": "git",

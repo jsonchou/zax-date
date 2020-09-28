@@ -89,10 +89,14 @@ describe('zaxDate', () => {
 	})
 
 	it(`diff`, () => {
-		expect(diff('2017/10/25 15:47:59', '2018/10/26 11:37:35')).toEqual({ days: 365, hours: 19, minutes: 49, seconds: 36, milliseconds: 31607376000 })
-		expect(diff('2019/10/25 15:47:59', '2019/10/26 11:37:35')).toEqual({ days: 0, hours: 19, minutes: 49, seconds: 36, milliseconds: 71376000 })
+		expect(diff('2017/10/25 15:47:59', '2018/10/26 11:37:35')).toEqual({ days: 365, hours: 19, minutes: 49, seconds: 36, milliseconds: 36 })
+		expect(diff('2019/10/25 15:47:59', '2019/10/26 11:37:35')).toEqual({ days: 0, hours: 19, minutes: 49, seconds: 36, milliseconds: 36 })
 		expect(diff('2019/10/25 15:47:59')).toBeTruthy()
 
+		expect(diff('2017/10/25 15:47:59', '2018/10/26 11:46:35')).toEqual({ days: 365, hours: 19, minutes: 58, seconds: 36, milliseconds: 36 })
+		expect(diff('2017/10/25 15:47:59', '2018/10/26 11:46:35', false)).toEqual({ days: 365, hours: 19, minutes: 58, seconds: 36, milliseconds: 36 })
+		expect(diff('2019/10/25 15:47:59', '2019/10/26 11:48:35', true)).toEqual({ days: "00", hours: "20", minutes: "00", seconds: "36", milliseconds: "036" })
+		expect(diff('2019/10/25 15:47:59')).toBeTruthy()
 	})
 
 	it(`age`, () => {
@@ -106,7 +110,7 @@ describe('zaxDate', () => {
 		expect(age(`${thisYear - 1}/2/11 11:59:59`, true)).toEqual(1)
 		expect(age(`${thisYear - 1}/2/11 11:59:59`, false)).toEqual(1)
 
-		expect(age(`${thisYear - 1}/09/25 11:59:59`, true)).toEqual(0)
+		expect(age(`${thisYear - 1}/09/25 11:59:59`, true)).toEqual(1)
 		expect(age(`${thisYear - 1}/09/25 11:59:59`, false)).toEqual(1)
 
 

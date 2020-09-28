@@ -92,11 +92,11 @@ declare const dateSections: {
 declare type DateSectionKeys = keyof typeof dateSections;
 declare type NoneStdDateType = Date | number | string;
 interface DateDiffResult {
-    days: number;
-    hours: number;
-    minutes: number;
-    seconds: number;
-    milliseconds: number;
+    days: number | string;
+    hours: number | string;
+    minutes: number | string;
+    seconds: number | string;
+    milliseconds: number | string;
 }
 /**
  * compare date.
@@ -183,7 +183,7 @@ declare const format: (targetDate: NoneStdDateType, mode?: string) => string;
  * @param endDate {NoneStdDateType} number
  * @returns {DateDiffResult} diff date
  */
-declare const diff: (dtStart: NoneStdDateType, dtEnd?: NoneStdDateType) => DateDiffResult;
+declare const diff: (dtStart: NoneStdDateType, dtEnd?: NoneStdDateType, padZero?: boolean) => DateDiffResult;
 /**
  * get age from date.
  * 0 - 10
@@ -218,7 +218,7 @@ declare const expData: {
     get: (targetDate: NoneStdDateType, mode: OffsetType) => number;
     ago: (targetDate: NoneStdDateType, locale?: DateSectionKeys, nowDate?: NoneStdDateType) => string;
     format: (targetDate: NoneStdDateType, mode?: string) => string;
-    diff: (dtStart: NoneStdDateType, dtEnd?: NoneStdDateType) => DateDiffResult;
+    diff: (dtStart: NoneStdDateType, dtEnd?: NoneStdDateType, padZero?: boolean) => DateDiffResult;
     age: (targetDate: NoneStdDateType, accurate: boolean) => number;
     isLeapYear: (targetDate?: NoneStdDateType) => boolean;
     CompareType: typeof CompareType;
